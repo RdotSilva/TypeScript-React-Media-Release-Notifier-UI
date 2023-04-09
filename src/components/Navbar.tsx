@@ -13,6 +13,8 @@ import { FiMenu } from "react-icons/fi";
 export const NavBar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
 
+  const navBarLinks = ["New Releases", "Account", "Support"];
+
   return (
     <Box as="section" pb={{ base: "12", md: "24" }}>
       <Box as="nav" bg="bg-surface" boxShadow="sm">
@@ -21,7 +23,7 @@ export const NavBar = () => {
             {isDesktop ? (
               <Flex justify="space-between" flex="1">
                 <ButtonGroup variant="link" spacing="8">
-                  {["Product", "Pricing", "Resources", "Support"].map(
+                  {navBarLinks.map(
                     (item) => (
                       <Button key={item}>{item}</Button>
                     )
