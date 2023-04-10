@@ -20,7 +20,7 @@ npm start
 
 - TypeScript
 - React
-- Material UI
+- Chakra UI
 - VSCode
 
 ## License
