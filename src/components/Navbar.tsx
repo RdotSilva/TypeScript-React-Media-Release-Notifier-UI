@@ -9,6 +9,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
+import { ColorModeSwitcher } from "../ColorModeSwitcher";
 
 export const NavBar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
@@ -23,11 +24,9 @@ export const NavBar = () => {
             {isDesktop ? (
               <Flex justify="space-between" flex="1">
                 <ButtonGroup variant="link" spacing="8">
-                  {navBarLinks.map(
-                    (item) => (
-                      <Button key={item}>{item}</Button>
-                    )
-                  )}
+                  {navBarLinks.map((item) => (
+                    <Button key={item}>{item}</Button>
+                  ))}
                 </ButtonGroup>
                 <HStack spacing="3">
                   <Button variant="ghost">Sign in</Button>
@@ -41,6 +40,7 @@ export const NavBar = () => {
                 aria-label="Open Menu"
               />
             )}
+            <ColorModeSwitcher justifySelf="flex-end" />
           </HStack>
         </Container>
       </Box>
