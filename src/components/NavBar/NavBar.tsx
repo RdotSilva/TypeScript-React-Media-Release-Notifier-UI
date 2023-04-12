@@ -9,7 +9,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
-import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 
 export const NavBar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
