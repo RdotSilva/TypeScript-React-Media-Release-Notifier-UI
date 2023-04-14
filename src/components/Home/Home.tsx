@@ -25,15 +25,13 @@ const Home = () => {
             fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
             lineHeight={"110%"}
           >
-            Make money from <br />
+            Welcome to <br />
             <Text as={"span"} color={"green.400"}>
-              your audience
+              Release Notifier
             </Text>
           </Heading>
           <Text color={"gray.500"}>
-            Monetize your content by charging your most loyal readers and reward
-            them loyalty points. Give back to your loyal readers by granting
-            them access to your pre-releases and sneak-peaks.
+            Get email alerts for new releases so yo don't miss a single moment.
           </Text>
           <Stack
             direction={"column"}
@@ -69,11 +67,11 @@ const Home = () => {
                 fontSize={"lg"}
                 fontFamily={"Caveat"}
                 position={"absolute"}
-                right={"-125px"}
+                right={"-250px"}
                 top={"-15px"}
-                transform={"rotate(10deg)"}
+                transform={"rotate(5deg)"}
               >
-                Starting at $15/mo
+                Add your first release notification
               </Text>
             </Box>
           </Stack>
@@ -95,3 +93,5 @@ const Arrow = createIcon({
     />
   ),
 });
+
+export default Home;
