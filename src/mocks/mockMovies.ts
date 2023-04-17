@@ -1,4 +1,13 @@
-export const mockMovies = [
+export interface Movie {
+  img: string;
+  title: string;
+  description: string;
+  releaseDate: string;
+  linkOne: string;
+  linkTwo: string;
+}
+
+export const mockMovies: Movie[] = [
   {
     img: "image",
     title: "1",
