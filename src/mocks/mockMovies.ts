@@ -19,9 +19,29 @@ export const mockMovies: Movie[] = [
 ];
 
 /**
+ * Incoming movie from TMDB API
+ */
+export interface IncomingMovie {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
+/**
  * This is the shape of the incoming movies from the API call
  */
-export const mockIncomingMovies = [
+export const mockIncomingMovies: IncomingMovie[] = [
   {
     adult: false,
     backdrop_path: "/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg",
