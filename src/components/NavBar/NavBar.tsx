@@ -14,7 +14,20 @@ import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 export const NavBar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
 
-  const navBarLinks = ["New Releases", "Account", "Support"];
+  const navBarLinks = [
+    {
+      path: "/newreleases",
+      text: "New Releases",
+    },
+    {
+      path: "/account",
+      text: "Account",
+    },
+    {
+      path: "/support",
+      text: "Support",
+    },
+  ];
 
   return (
     <Box as="section" pb={{ base: "12", md: "24" }}>
@@ -25,7 +38,7 @@ export const NavBar = () => {
               <Flex justify="space-between" flex="1">
                 <ButtonGroup variant="link" spacing="8">
                   {navBarLinks.map((item) => (
-                    <Button key={item}>{item}</Button>
+                    <Button key={item.text}>{item.text}</Button>
                   ))}
                 </ButtonGroup>
                 <HStack spacing="3">
