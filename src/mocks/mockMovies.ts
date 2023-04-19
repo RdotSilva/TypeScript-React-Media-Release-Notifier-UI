@@ -1,20 +1,18 @@
 export interface Movie {
-  img: string;
+  image: string;
   title: string;
   description: string;
   releaseDate: string;
-  linkOne: string;
-  linkTwo: string;
+  movieUrl: string;
 }
 
 export const mockMovies: Movie[] = [
   {
-    img: "image",
+    image: "image",
     title: "1",
     description: "Movie 1",
     releaseDate: "4/17/23",
-    linkOne: "http://www.linkOne.com",
-    linkTwo: "http://www.linktwo.com",
+    movieUrl: "http://www.linkOne.com",
   },
 ];
 
