@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
@@ -38,7 +39,7 @@ export const NavBar = () => {
               <Flex justify="space-between" flex="1">
                 <ButtonGroup variant="link" spacing="8">
                   {navBarLinks.map((item) => (
-                    <Button key={item.text}>{item.text}</Button>
+                    <Link to={item.path}>{item.text}</Link>
                   ))}
                 </ButtonGroup>
                 <HStack spacing="3">
