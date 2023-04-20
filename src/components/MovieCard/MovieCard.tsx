@@ -13,18 +13,25 @@ import {
   CardFooter,
 } from "@chakra-ui/react";
 
+interface MovieCardProps {
+  image: string;
+  title: string;
+  description: string;
+  releaseDate: string;
+  movieUrl: string;
+}
+
 const MovieCard = ({
-  img,
+  image,
   title,
   description,
   releaseDate,
-  linkOne,
-  linkTwo,
-}) => {
+  movieUrl,
+}: MovieCardProps) => {
   return (
     <Card maxW="sm">
       <CardBody>
-        <Image src={img} alt={title + "img"} borderRadius="lg" />
+        <Image src={image} alt={title + "img"} borderRadius="lg" />
         <Stack mt="6" spacing="3">
           <Heading size="md">{title}</Heading>
           <Text>{description}</Text>
@@ -37,10 +44,10 @@ const MovieCard = ({
       <CardFooter>
         <ButtonGroup spacing="2">
           <Button variant="solid" colorScheme="blue">
-            {linkOne}
+            {movieUrl}
           </Button>
           <Button variant="ghost" colorScheme="blue">
-            {linkTwo}
+            {movieUrl}
           </Button>
         </ButtonGroup>
       </CardFooter>
