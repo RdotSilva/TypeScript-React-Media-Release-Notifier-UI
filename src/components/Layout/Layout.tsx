@@ -1,12 +1,13 @@
 import React, { PropsWithChildren } from "react";
 import { NavBar } from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import { Outlet } from "react-router-dom";
 
-const Layout = ({ children }: PropsWithChildren) => {
+const Layout = () => {
   return (
     <>
       <NavBar />
-      {children}
+      <Outlet />
       <Footer />
     </>
   );
