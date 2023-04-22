@@ -36,7 +36,7 @@ const MovieCard = ({
           <Heading size="md">{title}</Heading>
           <Text>{description}</Text>
           <Text color="blue.600" fontSize="2xl">
-            {releaseDate}
+            Released on: {releaseDate}
           </Text>
         </Stack>
       </CardBody>
@@ -44,9 +44,6 @@ const MovieCard = ({
       <CardFooter>
         <ButtonGroup spacing="2">
           <Button variant="solid" colorScheme="blue">
-            {movieUrl}
-          </Button>
-          <Button variant="ghost" colorScheme="blue">
             {movieUrl}
           </Button>
         </ButtonGroup>
