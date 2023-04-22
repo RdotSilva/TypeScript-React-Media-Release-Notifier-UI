@@ -1,13 +1,24 @@
 import { Center, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import { mockMovies } from "../../mocks/mockMovies";
+import { Movie, mockIncomingMovies, mockMovies } from "../../mocks/mockMovies";
+import { transformMovie } from "../../utils/movies";
 
 const NewReleases = () => {
+  const [movies, setMovies] = useState<Movie[]>([]);
+
+  useEffect(() => {
+    setMovies(
+      mockIncomingMovies.map((incomingMovie) => {
+        return transformMovie(incomingMovie);
+      })
+    );
+  }, []);
+
   return (
     <>
-      <Text fontSize="6xl"> New Releases</Text>
-      {mockMovies.map((release) => (
+      <Text fontSize="6xl">New Releases</Text>
+      {movies.map((release) => (
         <MovieCard {...release} />
       ))}
     </>
