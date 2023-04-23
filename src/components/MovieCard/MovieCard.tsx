@@ -12,6 +12,7 @@ import {
   Image,
   CardFooter,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 interface MovieCardProps {
   image: string;
@@ -44,7 +45,7 @@ const MovieCard = ({
       <CardFooter>
         <ButtonGroup spacing="2">
           <Button variant="solid" colorScheme="blue">
-            {movieUrl}
+            <Link to={movieUrl}>TMDB Link</Link>
           </Button>
         </ButtonGroup>
       </CardFooter>
