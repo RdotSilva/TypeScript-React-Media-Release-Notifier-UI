@@ -1,4 +1,4 @@
-import { StackDivider, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, StackDivider, Text, VStack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import { Movie, mockIncomingMovies, mockMovies } from "../../mocks/mockMovies";
@@ -18,15 +18,13 @@ const NewReleases = () => {
   return (
     <>
       <Text fontSize="6xl">New Releases</Text>
-      <VStack
-        divider={<StackDivider borderColor="gray.200" />}
-        spacing={4}
-        align="stretch"
-      >
+      <Flex wrap="wrap" alignContent="center">
         {movies.map((release) => (
-          <MovieCard {...release} />
+          <Box w="500px" h="700px">
+            <MovieCard {...release} />
+          </Box>
         ))}
-      </VStack>
+      </Flex>
     </>
   );
 };
