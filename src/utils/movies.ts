@@ -19,3 +19,8 @@ export const transformMovie = (movie: IncomingMovie): Movie => {
 
   return transformedMovie;
 };
+
+/**
+ * URL used to fetch all upcoming movies
+ */
+export const fetchUpcomingMovieUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB}&language=en-US&page=1`;
