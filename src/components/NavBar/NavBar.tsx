@@ -21,7 +21,7 @@ export const NavBar = () => {
       text: "New Releases",
     },
     {
-      path: "/account",
+      path: "/options",
       text: "Account",
     },
     {
