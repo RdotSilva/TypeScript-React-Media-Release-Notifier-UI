@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Button, Checkbox, Flex, Stack, VStack } from "@chakra-ui/react";
+import { useStore } from "../../store";
 
 interface Genre {
   id: number;
@@ -18,6 +19,12 @@ const UserOptions: React.FC<any> = () => {
     console.log(formData);
   };
 
+  const store = useStore();
+
+  const {
+    userStore: { name },
+  } = store;
+
   // Mock for now remove these later
   const genres: Genre[] = [
     {
@@ -32,6 +39,7 @@ const UserOptions: React.FC<any> = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <div>Welcome {name}</div>
       <Flex p={4} borderRadius="md">
         {genres.map((genre) => (
           <Checkbox key={genre.id} {...register(genre.name)}>
