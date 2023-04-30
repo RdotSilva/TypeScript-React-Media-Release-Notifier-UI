@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import {
+  AbsoluteCenter,
   Box,
   Button,
+  Center,
   Checkbox,
   Flex,
   FormControl,
@@ -40,27 +42,28 @@ const UserOptions: React.FC<any> = () => {
   } = store;
 
   return (
-    <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <div>Welcome {name}</div>
-      <Flex p={4} borderRadius="md">
-        <FormControl as="fieldset">
-          <FormLabel as="legend">Select your genres</FormLabel>
-          <RadioGroup defaultValue="Itachi">
-            <HStack spacing="24px">
-              {Object.keys(genreList).map((genre) => (
-                <Checkbox key={genre} {...register(genre)}>
-                  {genre}
-                </Checkbox>
-              ))}
-            </HStack>
-          </RadioGroup>
-          <FormHelperText>
-            These will determine what new releases we show you
-          </FormHelperText>
-        </FormControl>
-        <Button type="submit">Submit</Button>
-      </Flex>
-    </form>
+    <AbsoluteCenter>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <Flex p={2} borderRadius="md">
+          <FormControl as="fieldset">
+            <FormLabel as="legend">Select your genres</FormLabel>
+            <RadioGroup defaultValue="Itachi">
+              <HStack spacing="24px">
+                {Object.keys(genreList).map((genre) => (
+                  <Checkbox key={genre} {...register(genre)}>
+                    {genre}
+                  </Checkbox>
+                ))}
+              </HStack>
+            </RadioGroup>
+            <FormHelperText>
+              These will determine what new releases we show you
+            </FormHelperText>
+          </FormControl>
+          <Button type="submit">Submit</Button>
+        </Flex>
+      </form>
+    </AbsoluteCenter>
   );
 };
 
