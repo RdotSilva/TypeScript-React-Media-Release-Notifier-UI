@@ -1,6 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Button, Checkbox, Flex, Stack, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Flex,
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  HStack,
+  Radio,
+  RadioGroup,
+  Stack,
+  VStack,
+} from "@chakra-ui/react";
 import { useStore } from "../../store";
 import { genreList } from "../../utils/genres";
 
@@ -30,11 +43,21 @@ const UserOptions: React.FC<any> = () => {
     <form onSubmit={handleSubmit(onSubmitHandler)}>
       <div>Welcome {name}</div>
       <Flex p={4} borderRadius="md">
-        {Object.keys(genreList).map((genre) => (
-          <Checkbox key={genre} {...register(genre)}>
-            {genre}
-          </Checkbox>
-        ))}
+        <FormControl as="fieldset">
+          <FormLabel as="legend">Select your genres</FormLabel>
+          <RadioGroup defaultValue="Itachi">
+            <HStack spacing="24px">
+              {Object.keys(genreList).map((genre) => (
+                <Checkbox key={genre} {...register(genre)}>
+                  {genre}
+                </Checkbox>
+              ))}
+            </HStack>
+          </RadioGroup>
+          <FormHelperText>
+            These will determine what new releases we show you
+          </FormHelperText>
+        </FormControl>
         <Button type="submit">Submit</Button>
       </Flex>
     </form>
