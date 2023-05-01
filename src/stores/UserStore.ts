@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 
 class UserStore {
   name: string = "";
-  genres: string[] = [];
+  genres: {} = {};
 
   constructor() {
     makeAutoObservable(this);
@@ -12,7 +12,7 @@ class UserStore {
     this.name = name;
   };
 
-  setGenres = (genres: string[]) => {
+  setGenres = (genres: {}) => {
     this.genres = genres;
   };
 }
