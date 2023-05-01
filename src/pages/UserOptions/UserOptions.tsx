@@ -31,15 +31,15 @@ interface FormData {
 const UserOptions: React.FC<any> = () => {
   const { register, handleSubmit } = useForm<FormData>();
 
-  const onSubmitHandler = (formData: FormData) => {
-    console.log(formData);
-  };
-
   const store = useStore();
 
   const {
-    userStore: { name },
+    userStore: { name, setGenres },
   } = store;
+
+  const onSubmitHandler = (formData: FormData) => {
+    setGenres(formData);
+  };
 
   return (
     <AbsoluteCenter>
