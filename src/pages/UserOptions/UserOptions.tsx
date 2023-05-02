@@ -53,20 +53,15 @@ const UserOptions: React.FC<any> = () => {
       western: genres.western,
     },
   });
-  const [userSelectedGenres, setUserSelectedGenres] = useState<string[]>([]);
+  const [userSelectedGenres, setUserSelectedGenres] =
+    useState<GenreUserOptions>(genres);
 
   const onSubmitHandler = (formData: GenreUserOptions) => {
     setGenres(formData);
   };
 
   useEffect(() => {
-    if (Object.keys(genres).length) {
-      const genreArray = Object.keys(genres).map((genre) => genre);
-      setUserSelectedGenres(genreArray);
-    } else {
-      const existingGenreList = Object.keys(genreList).map((genre) => genre);
-      setUserSelectedGenres(existingGenreList);
-    }
+    setUserSelectedGenres(genres);
   }, [genres]);
 
   return (
@@ -77,7 +72,7 @@ const UserOptions: React.FC<any> = () => {
             <FormLabel as="legend">Select your genres</FormLabel>
             <RadioGroup defaultValue="genres">
               <HStack spacing="24px">
-                {userSelectedGenres.map((genre) => (
+                {Object.keys(userSelectedGenres).map((genre: any) => (
                   <Checkbox key={genre} {...register(genre)}>
                     {genre}
                   </Checkbox>
