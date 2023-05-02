@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   AbsoluteCenter,
@@ -17,29 +17,57 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useStore } from "../../store";
-import { genreList } from "../../utils/genres";
+import { GenreUserOptions, genreList } from "../../utils/genres";
 
 interface Genre {
   id: number;
   name: string;
 }
 
-interface FormData {
-  [key: string]: boolean;
-}
-
 const UserOptions: React.FC<any> = () => {
-  const { register, handleSubmit } = useForm<FormData>();
-
   const store = useStore();
-
   const {
-    userStore: { name, setGenres },
+    userStore: { name, setGenres, genres },
   } = store;
 
-  const onSubmitHandler = (formData: FormData) => {
+  const { register, handleSubmit } = useForm<GenreUserOptions>({
+    defaultValues: {
+      action: genres.action,
+      adventure: genres.adventure,
+      animation: genres.animation,
+      comedy: genres.comedy,
+      crime: genres.crime,
+      documentary: genres.documentary,
+      drama: genres.drama,
+      family: genres.family,
+      fantasy: genres.fantasy,
+      history: genres.history,
+      horror: genres.horror,
+      music: genres.music,
+      mystery: genres.mystery,
+      romance: genres.romance,
+      scienceFiction: genres.scienceFiction,
+      tvMovie: genres.tvMovie,
+      thriller: genres.thriller,
+      war: genres.war,
+      western: genres.western,
+    },
+  });
+  const [userSelectedGenres, setUserSelectedGenres] = useState<string[]>([]);
+
+  const onSubmitHandler = (formData: GenreUserOptions) => {
     setGenres(formData);
   };
+
+  useEffect(() => {
+    if (Object.keys(genres).length) {
+      const genreArray = Object.keys(genres).map((genre) => genre);
+      setUserSelectedGenres(genreArray);
+    } else {
+      const existingGenreList = Object.keys(genreList).map((genre) => genre);
+      setUserSelectedGenres(existingGenreList);
+    }
+  }, [genres]);
 
   return (
     <AbsoluteCenter>
@@ -47,9 +75,9 @@ const UserOptions: React.FC<any> = () => {
         <Flex p={2} borderRadius="md">
           <FormControl as="fieldset">
             <FormLabel as="legend">Select your genres</FormLabel>
-            <RadioGroup defaultValue="Itachi">
+            <RadioGroup defaultValue="genres">
               <HStack spacing="24px">
-                {Object.keys(genreList).map((genre) => (
+                {userSelectedGenres.map((genre) => (
                   <Checkbox key={genre} {...register(genre)}>
                     {genre}
                   </Checkbox>
