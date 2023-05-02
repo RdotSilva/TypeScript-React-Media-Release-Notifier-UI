@@ -44,3 +44,28 @@ export const genreList: Genres = {
   war: 10752,
   western: 37,
 };
+
+/**
+ * These are the genre options that come from the user account options form data
+ */
+export interface GenreUserOptions {
+  action: boolean;
+  adventure: boolean;
+  animation: boolean;
+  comedy: boolean;
+  crime: boolean;
+  documentary: boolean;
+  drama: boolean;
+  family: boolean;
+  fantasy: boolean;
+  history: boolean;
+  horror: boolean;
+  music: boolean;
+  mystery: boolean;
+  romance: boolean;
+  scienceFiction: boolean;
+  tvMovie: boolean;
+  thriller: boolean;
+  war: boolean;
+  western: boolean;
+}
