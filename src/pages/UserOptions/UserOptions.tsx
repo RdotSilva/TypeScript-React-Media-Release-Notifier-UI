@@ -4,20 +4,12 @@ import {
   AbsoluteCenter,
   Box,
   Button,
-  Center,
   Checkbox,
-  CheckboxGroup,
   Flex,
   FormControl,
   FormHelperText,
   FormLabel,
-  HStack,
-  Radio,
   RadioGroup,
-  Stack,
-  VStack,
-  Wrap,
-  WrapItem,
 } from "@chakra-ui/react";
 import { useStore } from "../../store";
 import { GenreUserOptions, genreList } from "../../utils/genres";
