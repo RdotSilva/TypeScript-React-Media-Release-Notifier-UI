@@ -1,6 +1,6 @@
 # TypeScript React Media Release Notifier UI
 
-This is the UI for the Media Release Notifier.
+This is the UI for the Media Release Notifier. It will require the backend server to be running (still a WIP)
 
 ## Installation
 
