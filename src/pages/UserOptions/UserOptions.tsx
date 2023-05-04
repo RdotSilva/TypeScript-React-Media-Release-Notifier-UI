@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
-  AbsoluteCenter,
   Box,
   Button,
   Checkbox,
   CheckboxGroup,
   Container,
-  Flex,
   FormControl,
   FormHelperText,
   FormLabel,
-  HStack,
-  RadioGroup,
-  Stack,
 } from "@chakra-ui/react";
 import { useStore } from "../../store";
-import { GenreUserOptions, genreList } from "../../utils/genres";
+import { GenreUserOptions } from "../../utils/genres";
 
 interface Genre {
   id: number;
