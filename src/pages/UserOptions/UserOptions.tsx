@@ -64,28 +64,28 @@ const UserOptions: React.FC<any> = () => {
   }, [genres]);
 
   return (
-    <Container maxW={"3xl"}>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <FormControl as="fieldset">
-          <FormLabel as="legend">Select your genres</FormLabel>
-          <CheckboxGroup
-            colorScheme="green"
-            defaultValue={["naruto", "kakashi"]}
-          >
-            <Stack spacing={[1, 1]} direction={["column", "column"]}>
+    <Container maxW="md">
+      <Box display="flex" flexWrap="wrap" w="50%">
+        <form onSubmit={handleSubmit(onSubmitHandler)}>
+          <FormControl as="fieldset">
+            <FormLabel as="legend">Select your genres</FormLabel>
+            <CheckboxGroup
+              colorScheme="green"
+              defaultValue={["naruto", "kakashi"]}
+            >
               {Object.keys(userSelectedGenres).map((genre: any) => (
                 <Checkbox key={genre} {...register(genre)}>
                   {genre}
                 </Checkbox>
               ))}
-            </Stack>
-          </CheckboxGroup>
-          <FormHelperText>
-            These will determine what new releases we show you
-          </FormHelperText>
-        </FormControl>
-        <Button type="submit">Submit</Button>
-      </form>
+            </CheckboxGroup>
+            <FormHelperText>
+              These will determine what new releases we show you
+            </FormHelperText>
+          </FormControl>
+          <Button type="submit">Submit</Button>
+        </form>
+      </Box>
     </Container>
   );
 };
