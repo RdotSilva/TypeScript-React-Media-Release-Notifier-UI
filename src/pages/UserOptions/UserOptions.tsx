@@ -5,11 +5,15 @@ import {
   Box,
   Button,
   Checkbox,
+  CheckboxGroup,
+  Container,
   Flex,
   FormControl,
   FormHelperText,
   FormLabel,
+  HStack,
   RadioGroup,
+  Stack,
 } from "@chakra-ui/react";
 import { useStore } from "../../store";
 import { GenreUserOptions, genreList } from "../../utils/genres";
@@ -60,30 +64,29 @@ const UserOptions: React.FC<any> = () => {
   }, [genres]);
 
   return (
-    <AbsoluteCenter>
+    <Container maxW={"3xl"}>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <Flex direction="column">
-          <FormControl as="fieldset">
-            <FormLabel as="legend">Select your genres</FormLabel>
-            <RadioGroup defaultValue="genres">
-              <Flex>
-                {Object.keys(userSelectedGenres).map((genre: any) => (
-                  <Box>
-                    <Checkbox key={genre} {...register(genre)}>
-                      {genre}
-                    </Checkbox>
-                  </Box>
-                ))}
-              </Flex>
-            </RadioGroup>
-            <FormHelperText>
-              These will determine what new releases we show you
-            </FormHelperText>
-          </FormControl>
-        </Flex>
+        <FormControl as="fieldset">
+          <FormLabel as="legend">Select your genres</FormLabel>
+          <CheckboxGroup
+            colorScheme="green"
+            defaultValue={["naruto", "kakashi"]}
+          >
+            <Stack spacing={[1, 1]} direction={["column", "column"]}>
+              {Object.keys(userSelectedGenres).map((genre: any) => (
+                <Checkbox key={genre} {...register(genre)}>
+                  {genre}
+                </Checkbox>
+              ))}
+            </Stack>
+          </CheckboxGroup>
+          <FormHelperText>
+            These will determine what new releases we show you
+          </FormHelperText>
+        </FormControl>
         <Button type="submit">Submit</Button>
       </form>
-    </AbsoluteCenter>
+    </Container>
   );
 };
 
