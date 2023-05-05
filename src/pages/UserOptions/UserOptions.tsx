@@ -55,7 +55,7 @@ const UserOptions: React.FC<any> = () => {
 
   return (
     <Container maxW="md">
-      <Box display="flex" flexWrap="wrap" w="50%">
+      <Box display="flex" flexWrap="wrap">
         <form onSubmit={handleSubmit(onSubmitHandler)}>
           <FormControl as="fieldset">
             <FormLabel as="legend">Select your genres</FormLabel>
