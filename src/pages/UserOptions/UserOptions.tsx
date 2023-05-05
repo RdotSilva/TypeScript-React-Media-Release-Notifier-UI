@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { useStore } from "../../store";
 import { GenreUserOptions } from "../../utils/genres";
+import { observer } from "mobx-react";
 
 interface Genre {
   id: number;
@@ -47,16 +48,10 @@ const UserOptions: React.FC<any> = () => {
       western: genres.western,
     },
   });
-  const [userSelectedGenres, setUserSelectedGenres] =
-    useState<GenreUserOptions>(genres);
 
   const onSubmitHandler = (formData: GenreUserOptions) => {
     setGenres(formData);
   };
-
-  useEffect(() => {
-    setUserSelectedGenres(genres);
-  }, [genres]);
 
   return (
     <Container maxW="md">
@@ -68,7 +63,7 @@ const UserOptions: React.FC<any> = () => {
               colorScheme="green"
               defaultValue={["naruto", "kakashi"]}
             >
-              {Object.keys(userSelectedGenres).map((genre: any) => (
+              {Object.keys(genres).map((genre: any) => (
                 <Checkbox key={genre} {...register(genre)}>
                   {genre}
                 </Checkbox>
@@ -85,4 +80,4 @@ const UserOptions: React.FC<any> = () => {
   );
 };
 
-export default UserOptions;
+export default observer(UserOptions);
