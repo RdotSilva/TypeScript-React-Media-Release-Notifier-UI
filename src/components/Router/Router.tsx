@@ -5,6 +5,7 @@ import NewReleases from "../../pages/NewReleases/NewReleases";
 import Layout from "../Layout/Layout";
 import NotFound from "../../pages/NotFound/NotFound";
 import UserOptions from "../../pages/UserOptions/UserOptions";
+import Login from "../../pages/Login/Login";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
