@@ -41,11 +41,8 @@ export const NavBar = () => {
                   {navBarLinks.map((item) => (
                     <Link to={item.path}>{item.text}</Link>
                   ))}
+                  <Link to="/login">Login</Link>
                 </ButtonGroup>
-                <HStack spacing="3">
-                  <Button variant="ghost">Sign in</Button>
-                  <Button variant="primary">Sign up</Button>
-                </HStack>
               </Flex>
             ) : (
               <IconButton
