@@ -26,30 +26,18 @@ const Login = () => {
   const handleShowClick = () => setShowPassword(!showPassword);
 
   return (
-    <Flex
-      flexDirection="column"
-      width="100wh"
-      height="100vh"
-      backgroundColor="gray.200"
-      justifyContent="center"
-      alignItems="center"
-    >
+    <Flex flexDirection="column" justifyContent="center" alignItems="center">
       <Stack
         flexDir="column"
         mb="2"
         justifyContent="center"
         alignItems="center"
       >
-        <Avatar bg="teal.500" />
-        <Heading color="teal.400">Welcome</Heading>
+        <Avatar bg="green.400" />
+        <Heading color="green.400">Welcome</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form>
-            <Stack
-              spacing={4}
-              p="1rem"
-              backgroundColor="whiteAlpha.900"
-              boxShadow="md"
-            >
+            <Stack spacing={4} p="1rem" boxShadow="md">
               <FormControl>
                 <InputGroup>
                   <InputLeftElement
