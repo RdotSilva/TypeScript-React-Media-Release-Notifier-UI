@@ -72,7 +72,7 @@ const Login = () => {
                 borderRadius={0}
                 type="submit"
                 variant="solid"
-                colorScheme="teal"
+                color={"green.400"}
                 width="full"
               >
                 Login
