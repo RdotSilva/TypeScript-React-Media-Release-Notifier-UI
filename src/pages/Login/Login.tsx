@@ -82,8 +82,8 @@ const Login = () => {
         </Box>
       </Stack>
       <Box>
-        New to us?{" "}
-        <Link color="teal.500" href="#">
+        Don't have an account?{" "}
+        <Link color="green.400" href="signup">
           Sign Up
         </Link>
       </Box>
